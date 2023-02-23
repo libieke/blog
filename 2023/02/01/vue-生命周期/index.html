@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+    <link rel="icon" href="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
+    
+      
+        <title>
+          
+            查看动态 | 
+                Snow Huose
+        </title>
+        <meta name="author" content="libieke" />
+        <meta http-equiv="Cache-Control" content="no-transform" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="robots" content="index,follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="format-detection" content="telphone=no, email=no" />
+        
+          <meta name="keywords"
+            content="" />
+          
+              <meta name="description" content="生命周期              概念：一组件从 创建 到 销毁 的整个过程就是生命周期 1.1_钩子函数 目标: Vue 框架内置函数，随着组件的生命周期阶段，自动执行  作用: 特定的时间点，执行特定的操作 场景: 组件创建完毕后，可以在created 生命周期函数中发起Ajax 请求，从而初始化 data 数据 分类: 4大阶段8个方法    阶段 方法名 方法名    初始化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="https://libieke.github.io/blog/2023/02/01/vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:site_name" content="Snow Huose">
+<meta property="og:description" content="生命周期              概念：一组件从 创建 到 销毁 的整个过程就是生命周期 1.1_钩子函数 目标: Vue 框架内置函数，随着组件的生命周期阶段，自动执行  作用: 特定的时间点，执行特定的操作 场景: 组件创建完毕后，可以在created 生命周期函数中发起Ajax 请求，从而初始化 data 数据 分类: 4大阶段8个方法    阶段 方法名 方法名    初始化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
+<meta property="article:published_time" content="2023-02-01T12:49:42.313Z">
+<meta property="article:modified_time" content="2023-02-01T12:50:28.348Z">
+<meta property="article:author" content="libieke">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
+                
+                    <!-- 站点验证相关 -->
+                    
+                      
+                          
+                              
+                                  
+                                    <!-- 样式表文件 -->
+                                    <link rel="stylesheet" id="kratos-css" href="/blog/css/kratosr.min.css" media="all"></script>
+                                      
+                                        <link rel="stylesheet" id="darkmode-css" href="/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+                                          <script src="/blog/js/kr-dark.min.js"></script>
+                                            
+                                              
+                                                <link rel="stylesheet" id="highlight-css" href="/blog/css/highlight/night-blue.min.css" media="all"></script>
+                                                  
+                                                    
+                                                          <link rel="stylesheet" id="fontawe-css" href="/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+                                                            <link rel="stylesheet" id="nprogress-css" href="/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+                                                              
+                                                                
+                                                                  <link rel="stylesheet" href="/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+                                                                    
+                                                                      
+                                                                        <link rel="stylesheet" href="/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+                                                                          
+                                                                            <!-- 不得不预先加载的一些JS文件 -->
+                                                                            <script src="/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+                                                                              
+                                                                                <script src="/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+                                                                                  
+                                                                                    
+                                                                                      <style>
+                                                                                        .kratos-cover.kratos-cover-2 {
+                                                                                            background-image: url('./images/banner.webp');
+                                                                                          }
+
+                                                                                          @media(min-width:768px) {
+                                                                                            body.custom-background {
+                                                                                              background-image: url('./images/bg.webp');
+                                                                                            }
+                                                                                          }
+
+                                                                                          
+                                                                                      </style>
+                                                                                      
+<meta name="generator" content="Hexo 6.3.0"></head>
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                        <a href="/blog/">
+                                                            
+                                                                
+                                                                    <i class="fa fa-home"></i>
+                                                                    
+                                                                        首页
+                                                        </a>
+                                                        
+                                        </li>
+                                        
+                                        <li>
+                                            
+                                                        <a href="/blog/archives/">
+                                                            
+                                                                
+                                                                    <i class="fa fa-file"></i>
+                                                                    
+                                                                        档案馆
+                                                        </a>
+                                                        
+                                        </li>
+                                        
+                                        <li>
+                                            
+                                                <a>
+                                                    
+                                                                
+                                                                    <i class="fa fa-link"></i>
+                                                                    
+                                                                        收藏
+                                                        </a>
+                                                        
+                                                            <ul class="sub-menu">
+                                                                
+                                                                    <li>
+                                                                        <a href="/blog/HTML/loveTree"
+                                                                            target="_blank">
+                                                                            
+                                                                                <i
+                                                                                    class="fa fa-fa-heart"></i>
+                                                                                
+                                                                                    爱情树
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a href="/blog/HTML/timing"
+                                                                            target="_blank">
+                                                                            
+                                                                                <i
+                                                                                    class="fa fa-fa-snowflake-o"></i>
+                                                                                
+                                                                                    节日计时
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a href="https://candinya.com"
+                                                                            target="_blank">
+                                                                            
+                                                                                    作者博客
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a href="https://github.com/Candinya/Kratos-Rebirth"
+                                                                            target="_blank">
+                                                                            
+                                                                                    项目链接
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                            
+                                        </li>
+                                        
+                                            
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/blog/">
+                            Snow Huose
+                        </a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/blog/">
+                        <h2>
+                            Snow Huose
+                        </h2> <br />
+                        <span>
+                            
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://libieke.github.io/blog/2023/02/01/vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2023-02-01T12:49:42.313Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-02-01</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">libieke</span>
+                </li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~15.08K
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fa fa-plus"></i></div><span>生命周期</span></div>
+    <div class="xContent"><div class="inner">
+        <p>概念：一组件从 创建 到 销毁 的整个过程就是生命周期</p>
+<h3 id="1-1-钩子函数"><a href="#1-1-钩子函数" class="headerlink" title="1.1_钩子函数"></a>1.1_钩子函数</h3><blockquote>
+<p>目标: <strong>Vue</strong> 框架内置函数，随着组件的生命周期阶段，自动执行</p>
+</blockquote>
+<p>作用: 特定的时间点，执行特定的操作</p>
+<p>场景: 组件创建完毕后，可以在created 生命周期函数中发起Ajax 请求，从而初始化 data 数据</p>
+<p>分类: 4大阶段8个方法</p>
+<table>
+<thead>
+<tr>
+<th><strong>阶段</strong></th>
+<th><strong>方法名</strong></th>
+<th><strong>方法名</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始化</td>
+<td>beforeCreate</td>
+<td>created</td>
+</tr>
+<tr>
+<td>挂载</td>
+<td>beforeMount</td>
+<td>mounted</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>beforeUpdate</td>
+<td>updated</td>
+</tr>
+<tr>
+<td>销毁</td>
+<td>beforeDestroy</td>
+<td>destroyed</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-初始化阶段"><a href="#1-2-初始化阶段" class="headerlink" title="1.2_初始化阶段"></a>1.2_初始化阶段</h3><blockquote>
+<p>目标: 掌握初始化阶段2个钩子函数作用和执行时机</p>
+</blockquote>
+<p>含义讲解:</p>
+<p>1.new Vue() – Vue实例化(组件也是一个小的Vue实例)</p>
+<p>2.Init Events &amp; Lifecycle – 初始化事件和生命周期函数</p>
+<p>3.beforeCreate – 生命周期钩子函数被执行</p>
+<p>4.Init injections&amp;reactivity – Vue内部添加data和methods等</p>
+<p>5.created – 生命周期钩子函数被执行, 实例创建</p>
+<p>6.接下来是编译模板阶段 –开始分析</p>
+<p>7.Has el option? – 是否有el选项 – 检查要挂到哪里</p>
+<p>​	没有. 调用$mount()方法</p>
+<p>​	有, 继续检查template选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &quot;hello, Vue&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // 一. 初始化</span><br><span class="line">    // new Vue()以后, vue内部给实例对象添加了一些属性和方法, data和methods初始化&quot;之前&quot;</span><br><span class="line">    beforeCreate()&#123;</span><br><span class="line">        console.log(&quot;beforeCreate -- 执行&quot;);</span><br><span class="line">        console.log(this.msg); // undefined</span><br><span class="line">    &#125;,</span><br><span class="line">    // data和methods初始化以后</span><br><span class="line">    // 场景: 网络请求, 注册全局事件</span><br><span class="line">    created()&#123;</span><br><span class="line">        console.log(&quot;created -- 执行&quot;);</span><br><span class="line">        console.log(this.msg); // hello, Vue</span><br><span class="line"></span><br><span class="line">        this.timer = setInterval(() =&gt; &#123;</span><br><span class="line">            console.log(&quot;哈哈哈&quot;);</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>App.vue - 引入使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;1. 生命周期&lt;/h1&gt;</span><br><span class="line"> 	&lt;Life&gt;&lt;/Life&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Life from &#x27;./components/Life&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    Life</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-挂载阶段"><a href="#1-3-挂载阶段" class="headerlink" title="1.3_挂载阶段"></a>1.3_挂载阶段</h3><blockquote>
+<p>目标: 掌握挂载阶段2个钩子函数作用和执行时机</p>
+</blockquote>
+<p>含义讲解:</p>
+<p>1.template选项检查</p>
+<p>​	有 - 编译template返回render渲染函数</p>
+<p>​	无 – 编译el选项对应标签作为template(要渲染的模板)</p>
+<p>2.虚拟DOM挂载成真实DOM之前</p>
+<p>3.beforeMount – 生命周期钩子函数被执行</p>
+<p>4.Create … – 把虚拟DOM和渲染的数据一并挂到真实DOM上</p>
+<p>5.真实DOM挂载完毕</p>
+<p>6.mounted – 生命周期钩子函数被执行</p>
+<p>components&#x2F;Life.vue - 创建一个文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>学习生命周期 - 看控制台打印<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;myP&quot;</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// ...省略其他代码</span></span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 二. 挂载</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 真实DOM挂载之前</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 场景: 预处理data, 不会触发updated钩子函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeMount</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;beforeMount -- 执行&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myP&quot;</span>)); <span class="comment">// null</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">msg</span> = <span class="string">&quot;重新值&quot;</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 真实DOM挂载以后</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 场景: 挂载后真实DOM</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">mounted</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;mounted -- 执行&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myP&quot;</span>)); <span class="comment">// p</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-更新阶段"><a href="#1-4-更新阶段" class="headerlink" title="1.4_更新阶段"></a>1.4_更新阶段</h3><blockquote>
+<p>目标: 掌握更新阶段2个钩子函数作用和执行时机</p>
+</blockquote>
+<p>含义讲解:</p>
+<p>1.当data里数据改变, 更新DOM之前</p>
+<p>2.beforeUpdate – 生命周期钩子函数被执行</p>
+<p>3.Virtual DOM…… – 虚拟DOM重新渲染, 打补丁到真实DOM</p>
+<p>4.updated – 生命周期钩子函数被执行</p>
+<p>5.当有data数据改变 – 重复这个循环</p>
+<p>components&#x2F;Life.vue - 创建一个文件</p>
+<p>准备ul+li循环, 按钮添加元素, 触发data改变-&gt;导致更新周期开始</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>学习生命周期 - 看控制台打印<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;myP&quot;</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;myUL&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(val, index) in arr&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span></span><br><span class="line">              &#123;&#123; val &#125;&#125;</span><br><span class="line">          <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;arr.push(1000)&quot;</span>&gt;</span>点击末尾加值<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">msg</span>: <span class="string">&quot;hello, Vue&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">arr</span>: [<span class="number">5</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">1</span>]</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// ...省略其他代码</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 三. 更新</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 前提: data数据改变才执行</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 更新之前</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeUpdate</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;beforeUpdate -- 执行&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;#myUL&gt;li&quot;</span>)[<span class="number">4</span>]); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 更新之后</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 场景: 获取更新后的真实DOM</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">updated</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;updated -- 执行&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;#myUL&gt;li&quot;</span>)[<span class="number">4</span>]); <span class="comment">// li</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-销毁阶段"><a href="#1-5-销毁阶段" class="headerlink" title="1.5_销毁阶段"></a>1.5_销毁阶段</h3><blockquote>
+<p>目标: 掌握销毁阶段2个钩子函数作用和执行时机</p>
+</blockquote>
+<p>含义讲解:</p>
+<p>1.当$destroy()被调用 – 比如组件DOM被移除(例v-if)</p>
+<p>2.beforeDestroy – 生命周期钩子函数被执行</p>
+<p>3.拆卸数据监视器、子组件和事件侦听器</p>
+<p>4.实例销毁后, 最后触发一个钩子函数</p>
+<p>5.destroyed – 生命周期钩子函数被执行</p>
+<p>components&#x2F;Life.vue - 准备生命周期方法(Life组件即将要被删除)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// ...省略其他代码</span></span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 四. 销毁</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 前提: v-if=&quot;false&quot; 销毁Vue实例</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 场景: 移除全局事件, 移除当前组件, 计时器, 定时器, eventBus移除事件$off方法</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeDestroy</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// console.log(&#x27;beforeDestroy -- 执行&#x27;);</span></span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">clearInterval</span>(<span class="variable language_">this</span>.<span class="property">timer</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">destroyed</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// console.log(&quot;destroyed -- 执行&quot;);</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>主要: App.vue - 点击按钮让Life组件从DOM上移除 -&gt; 导致Life组件进入销毁阶段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;Life v-if=&quot;show&quot;&gt;&lt;/Life&gt;</span><br><span class="line">&lt;button @click=&quot;show = false&quot;&gt;销毁组件&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            show: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-0-axios基本使用"><a href="#2-0-axios基本使用" class="headerlink" title="2.0_axios基本使用"></a>2.0_axios基本使用</h3><p>特点</p>
+<ul>
+<li>支持客户端发送Ajax请求</li>
+<li>支持服务端Node.js发送请求</li>
+<li>支持Promise相关用法</li>
+<li>支持请求和响应的拦截器功能</li>
+<li>自动转换JSON数据</li>
+<li>axios 底层还是原生js实现, 内部通过Promise封装的</li>
+</ul>
+<p>axios的基本使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">axios</span>(&#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;请求方式&#x27;</span>, <span class="comment">// get post</span></span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;请求地址&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;    <span class="comment">// 拼接到请求体的参数,  post请求的参数</span></span><br><span class="line">    <span class="attr">xxx</span>: xxx,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">params</span>: &#123;  <span class="comment">// 拼接到请求行的参数, get请求的参数</span></span><br><span class="line">   	<span class="attr">xxx</span>: xxx </span><br><span class="line">  &#125;</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">data</span>) <span class="comment">// 后台返回的结果</span></span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err) <span class="comment">// 后台报错返回</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-axios基本使用-获取数据"><a href="#2-1-axios基本使用-获取数据" class="headerlink" title="2.1_axios基本使用-获取数据"></a>2.1_axios基本使用-获取数据</h3><blockquote>
+<p>目标: 调用文档最后_获取所有图书信息接口</p>
+</blockquote>
+<p>功能: 点击调用后台接口, 拿到所有数据 – 打印到控制台</p>
+<p>接口: 参考预习资料.md – 接口文档</p>
+<p>引入: 下载axios, 引入后才能使用</p>
+<p>components&#x2F;UseAxios.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p&gt;1. 获取所有图书信息&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;getAllFn&quot;&gt;点击-查看控制台&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 目标1: 获取所有图书信息</span><br><span class="line">// 1. 下载axios</span><br><span class="line">// 2. 引入axios</span><br><span class="line">// 3. 发起axios请求</span><br><span class="line">import axios from &quot;axios&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    getAllFn() &#123;</span><br><span class="line">      axios(&#123;</span><br><span class="line">        url: &quot;http://123.57.109.30:3006/api/getbooks&quot;,</span><br><span class="line">        method: &quot;GET&quot;, // 默认就是GET方式请求, 可以省略不写</span><br><span class="line">      &#125;).then((res) =&gt; &#123;</span><br><span class="line">        console.log(res);</span><br><span class="line">      &#125;);</span><br><span class="line">      // axios()-原地得到Promise对象</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-axios基本使用-传参"><a href="#2-2-axios基本使用-传参" class="headerlink" title="2.2_axios基本使用-传参"></a>2.2_axios基本使用-传参</h3><blockquote>
+<p>目标: 调用接口-获取某本书籍信息</p>
+</blockquote>
+<p>功能: 点击调用后台接口, 查询用户想要的书籍信息 – 打印到控制台</p>
+<p>接口: 参考预习资料.md – 接口文档</p>
+<p>例子如下:</p>
+<p>components&#x2F;UseAxios.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p&gt;2. 查询某本书籍信息&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; placeholder=&quot;请输入要查询 的书名&quot; v-model=&quot;bName&quot; /&gt;</span><br><span class="line">    &lt;button @click=&quot;findFn&quot;&gt;查询&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import axios from &quot;axios&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      bName: &quot;&quot;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    // ...省略了查询所有的代码</span><br><span class="line">    findFn() &#123;</span><br><span class="line">      axios(&#123;</span><br><span class="line">        url: &quot;/api/getbooks&quot;,</span><br><span class="line">        method: &quot;GET&quot;,</span><br><span class="line">        params: &#123; // 都会axios最终拼接到url?后面</span><br><span class="line">            bookname: this.bName</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;).then(res =&gt; &#123;</span><br><span class="line">          console.log(res);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-axios基本使用-发布书籍"><a href="#2-3-axios基本使用-发布书籍" class="headerlink" title="2.3_axios基本使用-发布书籍"></a>2.3_axios基本使用-发布书籍</h3><blockquote>
+<p>目标: 完成发布书籍功能</p>
+</blockquote>
+<p>功能: 点击新增按钮, 把用户输入的书籍信息, 传递给后台 – 把结果打印在控制台</p>
+<p>接口: 参考预习资料.md – 接口文档</p>
+<p>例子如下:</p>
+<p>components&#x2F;UseAxios.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p&gt;3. 新增图书信息&lt;/p&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; placeholder=&quot;书名&quot; v-model=&quot;bookObj.bookname&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; placeholder=&quot;作者&quot; v-model=&quot;bookObj.author&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; placeholder=&quot;出版社&quot; v-model=&quot;bookObj.publisher&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;button @click=&quot;sendFn&quot;&gt;发布&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import axios from &quot;axios&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      bName: &quot;&quot;,</span><br><span class="line">      bookObj: &#123; // 参数名提前和后台的参数名对上-发送请求就不用再次对接了</span><br><span class="line">          bookname: &quot;&quot;,</span><br><span class="line">          author: &quot;&quot;,</span><br><span class="line">          publisher: &quot;&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    // ...省略了其他代码</span><br><span class="line">    sendFn()&#123;</span><br><span class="line">       axios(&#123;</span><br><span class="line">           url: &quot;/api/addbook&quot;,</span><br><span class="line">           method: &quot;POST&quot;,</span><br><span class="line">           data: &#123;</span><br><span class="line">               appkey: &quot;7250d3eb-18e1-41bc-8bb2-11483665535a&quot;,</span><br><span class="line">               ...this.bookObj</span><br><span class="line">            // 等同于下面</span><br><span class="line">            // bookname: this.bookObj.bookname,</span><br><span class="line">            // author: this.bookObj.author,</span><br><span class="line">            // publisher: this.bookObj.publisher</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;) </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-axios基本使用-全局配置"><a href="#2-4-axios基本使用-全局配置" class="headerlink" title="2.4_axios基本使用-全局配置"></a>2.4_axios基本使用-全局配置</h3><blockquote>
+<p>目标: 避免前缀基地址, 暴露在逻辑页面里, 统一设置</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">defaults</span>.<span class="property">baseURL</span> = <span class="string">&quot;http://123.57.109.30:3006&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 所有请求的url前置可以去掉, 请求时, axios会自动拼接baseURL的地址在前面</span></span><br><span class="line"><span class="title function_">getAllFn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123;</span><br><span class="line">        <span class="attr">url</span>: <span class="string">&quot;/api/getbooks&quot;</span>,</span><br><span class="line">        <span class="attr">method</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 默认就是GET方式请求, 可以省略不写</span></span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// axios()-原地得到Promise对象</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-0-refs-获取DOM"><a href="#3-0-refs-获取DOM" class="headerlink" title="3.0 $refs-获取DOM"></a>3.0 $refs-获取DOM</h3><blockquote>
+<p>目标: 利用 ref 和 $refs 可以用于获取 dom 元素</p>
+</blockquote>
+<p>components&#x2F;More.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;p&gt;1. 获取原生DOM元素&lt;/p&gt;</span><br><span class="line">      &lt;h1 id=&quot;h&quot; ref=&quot;myH&quot;&gt;我是一个孤独可怜又能吃的h1&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 目标: 获取组件对象</span><br><span class="line">// 1. 创建组件/引入组件/注册组件/使用组件</span><br><span class="line">// 2. 组件起别名ref</span><br><span class="line">// 3. 恰当时机, 获取组件对象</span><br><span class="line">export default &#123;</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        console.log(document.getElementById(&quot;h&quot;)); // h1</span><br><span class="line">        console.log(this.$refs.myH); // h1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>总结: 通过id &#x2F; ref, 都可以获取原生DOM标签</p>
+</blockquote>
+<h3 id="3-1-refs-获取组件对象"><a href="#3-1-refs-获取组件对象" class="headerlink" title="3.1 $refs-获取组件对象"></a>3.1 $refs-获取组件对象</h3><blockquote>
+<p>目标: 获取组件对象, 调用组件里方法</p>
+</blockquote>
+<p>components&#x2F;Child&#x2F;Demo.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;p&gt;我是Demo组件&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">        fn()&#123;</span><br><span class="line">            console.log(&quot;demo组件内的方法被调用了&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>More.vue - 获取组件对象 - 调用组件方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;p&gt;1. 获取原生DOM元素&lt;/p&gt;</span><br><span class="line">      &lt;h1 id=&quot;h&quot; ref=&quot;myH&quot;&gt;我是一个孤独可怜又能吃的h1&lt;/h1&gt;</span><br><span class="line">      &lt;p&gt;2. 获取组件对象 - 可调用组件内一切&lt;/p&gt;</span><br><span class="line">      &lt;Demo ref=&quot;de&quot;&gt;&lt;/Demo&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 目标: 获取组件对象</span><br><span class="line">// 1. 创建组件/引入组件/注册组件/使用组件</span><br><span class="line">// 2. 组件起别名ref</span><br><span class="line">// 3. 恰当时机, 获取组件对象</span><br><span class="line">import Demo from &#x27;./Child/Demo&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        console.log(document.getElementById(&quot;h&quot;)); // h1</span><br><span class="line">        console.log(this.$refs.myH); // h1</span><br><span class="line"></span><br><span class="line">        let demoObj = this.$refs.de;</span><br><span class="line">        demoObj.fn()</span><br><span class="line">    &#125;,</span><br><span class="line">    components: &#123;</span><br><span class="line">        Demo</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>总结: ref定义值, 通过$refs.值 来获取组件对象, 就能继续调用组件内的变量</p>
+</blockquote>
+<h3 id="3-2-nextTick使用"><a href="#3-2-nextTick使用" class="headerlink" title="3.2 $nextTick使用"></a>3.2 $nextTick使用</h3><blockquote>
+<h4 id="Vue更新DOM-异步的"><a href="#Vue更新DOM-异步的" class="headerlink" title="Vue更新DOM-异步的"></a>Vue更新DOM-异步的</h4></blockquote>
+<blockquote>
+<p>目标: 点击count++, 马上通过”原生DOM”拿标签内容, 无法拿到新值</p>
+</blockquote>
+<p>components&#x2F;Move.vue - 继续新增第三套代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;p&gt;1. 获取原生DOM元素&lt;/p&gt;</span><br><span class="line">      &lt;h1 id=&quot;h&quot; ref=&quot;myH&quot;&gt;我是一个孤独可怜又能吃的h1&lt;/h1&gt;</span><br><span class="line">      &lt;p&gt;2. 获取组件对象 - 可调用组件内一切&lt;/p&gt;</span><br><span class="line">      &lt;Demo ref=&quot;de&quot;&gt;&lt;/Demo&gt;</span><br><span class="line">      &lt;p&gt;3. vue更新DOM是异步的&lt;/p&gt;</span><br><span class="line">      &lt;p ref=&quot;myP&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button @click=&quot;btn&quot;&gt;点击count+1, 马上提取p标签内容&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 目标: 获取组件对象</span><br><span class="line">// 1. 创建组件/引入组件/注册组件/使用组件</span><br><span class="line">// 2. 组件起别名ref</span><br><span class="line">// 3. 恰当时机, 获取组件对象</span><br><span class="line">import Demo from &#x27;./Child/Demo&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        console.log(document.getElementById(&quot;h&quot;)); // h1</span><br><span class="line">        console.log(this.$refs.myH); // h1</span><br><span class="line"></span><br><span class="line">        let demoObj = this.$refs.de;</span><br><span class="line">        demoObj.fn()</span><br><span class="line">    &#125;,</span><br><span class="line">    components: &#123;</span><br><span class="line">        Demo</span><br><span class="line">    &#125;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        btn()&#123;</span><br><span class="line">            this.count++; // vue监测数据更新, 开启一个DOM更新队列(异步任务)</span><br><span class="line">            console.log(this.$refs.myP.innerHTML); // 0</span><br><span class="line"></span><br><span class="line">            // 原因: Vue更新DOM异步</span><br><span class="line">            // 解决: this.$nextTick()</span><br><span class="line">            // 过程: DOM更新完会挨个触发$nextTick里的函数体</span><br><span class="line">             this.$nextTick(() =&gt; &#123;</span><br><span class="line">                console.log(this.$refs.myP.innerHTML); // 1</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>总结: 因为DOM更新是异步的</p>
+</blockquote>
+<h3 id="3-3-nextTick使用场景"><a href="#3-3-nextTick使用场景" class="headerlink" title="3.3 $nextTick使用场景"></a>3.3 $nextTick使用场景</h3><blockquote>
+<p>目标: 点击搜索按钮, 弹出聚焦的输入框, 按钮消失</p>
+</blockquote>
+<p>components&#x2F;Tick.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;input ref=&quot;myInp&quot; type=&quot;text&quot; placeholder=&quot;这是一个输入框&quot; v-if=&quot;isShow&quot;&gt;</span><br><span class="line">      &lt;button v-else @click=&quot;btn&quot;&gt;点击我进行搜索&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 目标: 点按钮(消失) - 输入框出现并聚焦</span><br><span class="line">// 1. 获取到输入框</span><br><span class="line">// 2. 输入框调用事件方法focus()达到聚焦行为</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            isShow: false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        async btn()&#123;</span><br><span class="line">            this.isShow = true;</span><br><span class="line">            // this.$refs.myInp.focus()</span><br><span class="line">            // 原因: data变化更新DOM是异步的</span><br><span class="line">            // 输入框还没有挂载到真实DOM上</span><br><span class="line">            // 解决:</span><br><span class="line">            // this.$nextTick(() =&gt; &#123;</span><br><span class="line">            //     this.$refs.myInp.focus()</span><br><span class="line">            // &#125;)</span><br><span class="line">            // 扩展: await取代回调函数</span><br><span class="line">            // $nextTick()原地返回Promise对象</span><br><span class="line">            await this.$nextTick()</span><br><span class="line">            this.$refs.myInp.focus()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-组件name属性使用"><a href="#3-4-组件name属性使用" class="headerlink" title="3.4 组件name属性使用"></a>3.4 组件name属性使用</h3><blockquote>
+<p>目标: 可以用组件的name属性值, 来注册组件名字</p>
+</blockquote>
+<p>问题: 组件名不是可以随便写的?</p>
+<p>答案: 我们封装的组件-可以自己定义name属性组件名-让使用者有个统一的前缀风格</p>
+<p>components&#x2F;Com.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;p&gt;我是一个Com组件&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name: &quot;ComNameHaHa&quot; // 注册时可以定义自己的名字</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>App.vue - 注册和使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;1. 生命周期&lt;/h1&gt;</span><br><span class="line">    &lt;Life v-if=&quot;show&quot;&gt;&lt;/Life&gt;</span><br><span class="line">    &lt;button @click=&quot;show = false&quot;&gt;销毁组件&lt;/button&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;h1&gt;2. axios使用&lt;/h1&gt;</span><br><span class="line">    &lt;UseAxios&gt;&lt;/UseAxios&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;h1&gt;3. $refs的使用&lt;/h1&gt;</span><br><span class="line">    &lt;More&gt;&lt;/More&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;h1&gt;4. $nextTick使用场景&lt;/h1&gt;</span><br><span class="line">    &lt;Tick&gt;&lt;/Tick&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;h1&gt;5. 组件对象里name属性&lt;/h1&gt;</span><br><span class="line">    &lt;ComNameHaHa&gt;&lt;/ComNameHaHa&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Life from &#x27;./components/Life&#x27;</span><br><span class="line">import UseAxios from &#x27;./components/UseAxios&#x27;</span><br><span class="line">import More from &#x27;./components/More&#x27;</span><br><span class="line">import Tick from &#x27;./components/Tick&#x27;</span><br><span class="line">import Com from &#x27;./components/Com&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      show: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    Life,</span><br><span class="line">    UseAxios,</span><br><span class="line">    More,</span><br><span class="line">    Tick,</span><br><span class="line">    [Com.name]: Com // 对象里的key是变量的话[]属性名表达式</span><br><span class="line">    // &quot;ComNameHaHa&quot;: Com</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+ 
+    </div></div>
+    </div></div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://libieke.github.io/blog/2023/02/01/vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://libieke.github.io/blog/2023/02/01/vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/";
+            const title         = "「」";
+            const excerpt       = `
+    生命周期
+    
+        概念：一组件从 创建 到 销毁 的整个过程就是生命周期
+1.1_钩子函数
+目标: Vue 框架内置函数，随着组件的生命周期阶段，自动执行
+
+作用: 特定的时间点，执行特定的操作
+场景: 组...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2023-02-01T12:50:28.348Z" itemprop="dateModified">最后编辑：2023-02-01</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" GitHub找项目" href="/blog/2022/12/20/github找项目/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" webapis小细节" href="/blog/2023/02/01/易错点和注意事项/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://libieke-1316281983.cos.ap-nanjing.myqcloud.com/ji.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">前路漫漫，唯心作伴</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                9
+            </span>
+        </a>
+        <a class="meta-item" href="/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                2
+            </span>
+        </a>
+        <a class="meta-item" href="/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                1
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">前端基础知识</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BB%88%E7%AB%AF/">终端</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.6em;">前端</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/blog/2023/02/23/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AE%80%E5%8E%86/"><i class="fa  fa-book"></i> 制作小程序简历</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/blog/2023/02/01/JS%E5%8E%9F%E7%94%9F%E8%BD%AE%E6%92%AD%E5%9B%BE/"><i class="fa  fa-book"></i> JS原生轮播图例子</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/blog/2023/02/01/%E6%98%93%E9%94%99%E7%82%B9%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"><i class="fa  fa-book"></i> webapis小细节</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/blog/2022/12/20/github%E6%89%BE%E9%A1%B9%E7%9B%AE/"><i class="fa  fa-book"></i> GitHub找项目</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/blog/2022/12/19/%E8%A1%A5%E5%85%85/"><i class="fa  fa-book"></i> 什么是 RESTful 接口规范</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Candinya"><i class="fa fa fa-share-alt-square"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Candinya"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 Snow Huose 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by libieke.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/blog/";
+</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async src="/blog/js/snow.min.js"></script>
+    </div>
+
+
+    <script async src="/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/blog/vendors/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/blog/js/kratosr.min.js"></script>
+<script defer src="/blog/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
