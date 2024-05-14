@@ -124,7 +124,7 @@ layout: false
         function show_date_time() {
             window.setTimeout("show_date_time()", 1000);
             //你俩在一起的那天
-            BirthDay = new Date("8/17/2022 00:00:00");
+            BirthDay = new Date("5/2/2024 10:00:00");
             today = new Date();
             timeold = (today.getTime() - BirthDay.getTime());
             sectimeold = timeold / 1000
@@ -148,7 +148,7 @@ layout: false
                 S.Drawing.init('.canvas');
                 document.body.classList.add('body--ready');
                 // 动态变化的话,用|分割
-                S.UI.simulate("Mikey|Meeting|You|Is|My|Greatest|Luck|In|this|Life|#countdown 3|#time");
+                S.UI.simulate("naonao|Meeting|You|Is|My|Greatest|Luck|In|this|Life|#countdown 3|#time");
                 S.Drawing.loop(function () {
                     S.Shape.render();
                 });
