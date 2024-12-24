@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
 
-    <title>圣诞快乐</title>
+    <title>Musical Christmas Lights</title>
 
     <link
       rel="stylesheet"
@@ -99,17 +99,17 @@
 
     <div id="overlay">
       <ul>
-        <li class="title">姐姐大人，请选择音乐</li>
+        <li class="title">亲爱的姐，圣诞快乐呀</li>
         <li>
-          <button class="btn" id="btnA" type="button">
-            Snowflakes Falling Down by Simon Panrucker
+          <button class="btn" id="btnC" type="button">
+            No room at the inn by TRG Banks
           </button>
         </li>
         <li>
-          <button class="btn" id="btnB" type="button">
-            This Christmas by Dott
+          <button class="btn" id="btnD" type="button">
+            Jingle Bell Swing by Mark Smeby
           </button>
-        </li>
+
       </ul>
     </div>
 
@@ -239,10 +239,10 @@
 
       function loadAudio(i) {
         document.getElementById("overlay").innerHTML =
-          '<div class="text-loading">亲爱的姐姐等一下哈 俺马上弄好进来了...</div>';
+          '<div class="text-loading">亲爱的姐等一下哦 俺马上弄好啦~</div>';
         const files = [
-          "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Simon_Panrucker/Happy_Christmas_You_Guys/Simon_Panrucker_-_01_-_Snowflakes_Falling_Down.mp3",
-          "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Dott/This_Christmas/Dott_-_01_-_This_Christmas.mp3",
+          "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/TRG_Banks/TRG_Banks_Christmas_Album/TRG_Banks_-_12_-_No_room_at_the_inn.mp3",
+          "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Mark_Smeby/En_attendant_Nol/Mark_Smeby_-_07_-_Jingle_Bell_Swing.mp3",
         ];
 
         const file = files[i];
@@ -282,19 +282,15 @@
       varying vec3 vColor;
       varying float opacity;
       uniform sampler2D tAudioData;
-
       float norm(float value, float min, float max ){
        return (value - min) / (max - min);
       }
       float lerp(float norm, float min, float max){
        return (max - min) * norm + min;
       }
-
       float map(float value, float sourceMin, float sourceMax, float destMin, float destMax){
        return lerp(norm(value, sourceMin, sourceMax), destMin, destMax);
       }
-
-
       void main() {
        vColor = color;
        vec3 p = position;
@@ -403,44 +399,30 @@
       attribute float size;
       attribute float phase;
       attribute float phaseSecondary;
-
       varying vec3 vColor;
       varying float opacity;
-
-
       uniform float time;
       uniform float step;
-
       float norm(float value, float min, float max ){
        return (value - min) / (max - min);
       }
       float lerp(float norm, float min, float max){
        return (max - min) * norm + min;
       }
-
       float map(float value, float sourceMin, float sourceMax, float destMin, float destMax){
        return lerp(norm(value, sourceMin, sourceMax), destMin, destMax);
       }
       void main() {
        float t = time* 0.0006;
-
        vColor = color;
-
        vec3 p = position;
-
        p.y = map(mod(phase+step, 1000.0), 0.0, 1000.0, 25.0, -8.0);
-
        p.x += sin(t+phase);
        p.z += sin(t+phaseSecondary);
-
        opacity = map(p.z, -150.0, 15.0, 0.0, 1.0);
-
        vec4 mvPosition = modelViewMatrix * vec4( p, 1.0 );
-
        gl_PointSize = size * ( 100.0 / -mvPosition.z );
-
        gl_Position = projectionMatrix * mvPosition;
-
       }
       `;
 
@@ -448,7 +430,6 @@
       uniform sampler2D pointTexture;
       varying vec3 vColor;
       varying float opacity;
-
       void main() {
        gl_FragColor = vec4( vColor, opacity );
        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord ); 
@@ -539,24 +520,20 @@
       attribute float size;
       attribute vec3 customColor;
       varying vec3 vColor;
-
       void main() {
        vColor = customColor;
        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
        gl_PointSize = size * ( 300.0 / -mvPosition.z );
        gl_Position = projectionMatrix * mvPosition;
-
       }
       `;
         const fragmentShader = `
       uniform vec3 color;
       uniform sampler2D pointTexture;
       varying vec3 vColor;
-
       void main() {
        gl_FragColor = vec4( vColor, 1.0 );
        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
-
       }
       `;
         const shaderMaterial = new THREE.ShaderMaterial({
